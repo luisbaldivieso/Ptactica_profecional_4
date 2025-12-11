@@ -1,0 +1,24 @@
+<!-- Login -->
+<div *ngIf="mostrarLogin" class="login-background">
+  <div class="login-box">
+    <div class="login-logo"><span>BB</span></div>
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="login()">
+      <input type="text" placeholder="Usuario" [(ngModel)]="usuario" name="usuario" required>
+      <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+      <button type="submit">Ingresar</button>
+    </form>
+    <p *ngIf="error" class="error-msg">Usuario o contraseña incorrectos</p>
+  </div>
+</div>
+
+<!-- Dashboard -->
+<div *ngIf="!mostrarLogin" class="app-container">
+  <app-header></app-header>
+  <div class="main-content">
+    <app-sidebar></app-sidebar>
+    <div class="content-area">
+      <app-dashboard></app-dashboard>
+    </div>
+  </div>
+</div>
